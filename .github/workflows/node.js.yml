@@ -1,0 +1,72 @@
+name: Build and Test
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
+
+      - name: Build project
+        run: ng build
+
+      # - name: Run tests
+      #   run: ng test --watch=false --browsers=ChromeHeadlessCustom
+
+
+
+
+
+      - name: Login to Docker Hub
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build Docker image
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/angular-14-for-dotnet-web-api-6:1.0 .
+
+      - name: Push Docker image
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/angular-14-for-dotnet-web-api-6:1.0
+
+
+
+
+      # # Configure AWS CLI with credentials from secrets
+      # - name: Configure AWS credentials
+      #   uses: aws-actions/configure-aws-credentials@v1
+      #   with:
+      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     aws-region: ap-northeast-1 # Replace with your AWS region, e.g., us-west-2
+
+      # # Log in to AWS ECR
+      # - name: Login to Amazon ECR
+      #   id: login-ecr
+      #   run: |
+      #     aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 407095008364.dkr.ecr.ap-northeast-1.amazonaws.com
+
+      # # Build and push your Docker image to ECR
+      # - name: Build and push Docker image
+      #   run: |
+      #     docker build -t frontend .
+      #     docker tag frontend:latest 407095008364.dkr.ecr.ap-northeast-1.amazonaws.com/frontend:latest
+      #     docker push 407095008364.dkr.ecr.ap-northeast-1.amazonaws.com/frontend:latest
