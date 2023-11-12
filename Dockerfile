@@ -20,7 +20,7 @@ RUN npm run build
 FROM nginx:1.21.3-alpine
 
 # Copy the build artifacts from the first build stage to the Nginx image
-COPY --from=0 /app/dist/robin /usr/share/nginx/html
+COPY --from=0 /app/dist/SuperHero.UI /usr/share/nginx/html
 
 # Expose port 80 to the outside world
 EXPOSE 80
