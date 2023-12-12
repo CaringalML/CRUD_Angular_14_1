@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: "https://backend.repsoft-lawrence.click/api"
+  apiUrl: "https://backend.lawrence-kps.online/api"
 };
 
 /*
