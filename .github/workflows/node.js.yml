@@ -74,4 +74,5 @@ jobs:
 
 
       - name: Sync S3 bucket
-        run: aws s3 sync ./dist s3://angular-caringal-s3 --delete
+        run: aws s3 sync ./dist/super-hero.ui s3://angular-caringal-s3 --delete
+
