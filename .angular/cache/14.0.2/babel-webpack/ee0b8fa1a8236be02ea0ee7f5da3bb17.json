@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class SuperHero {\n  constructor() {\n    this.name = \"\";\n    this.firstName = \"\";\n    this.lastName = \"\";\n    this.place = \"\";\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}
