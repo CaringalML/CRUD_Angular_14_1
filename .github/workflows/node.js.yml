@@ -76,10 +76,10 @@ jobs:
       - name: Sync S3 bucket
         run: |
             # Step 1: Remove all existing files in the bucket
-            aws s3 rm s3://angular-caringal-s3 --recursive
+            # aws s3 rm s3://angular-caringal-s3 --recursive
     
             # Step 2: Sync new files to the bucket
-            # aws s3 sync ./dist/super-hero.ui s3://angular-caringal-s3
+            aws s3 sync ./dist/super-hero.ui s3://angular-caringal-s3
 
 
 
