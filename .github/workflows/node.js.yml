@@ -38,14 +38,14 @@ jobs:
 
 
 
-      - name: Login to Docker Hub
-        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+      # - name: Login to Docker Hub
+      #   run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/crud_angular_14_1:1.0 .
+      # - name: Build Docker image
+      #   run: docker build -t ${{ secrets.DOCKER_USERNAME }}/crud_angular_14_1:1.0 .
 
-      - name: Push Docker image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/crud_angular_14_1:1.0
+      # - name: Push Docker image
+      #   run: docker push ${{ secrets.DOCKER_USERNAME }}/crud_angular_14_1:1.0
 
 
 
@@ -75,6 +75,8 @@ jobs:
 
       - name: Sync S3 bucket
         # run: aws s3 sync ./dist/super-hero.ui s3://angular-caringal-s3 --delete
-        run: aws s3 rm s3://angular-caringal-s3 --recursive
+        # run: aws s3 rm s3://angular-caringal-s3 --recursive
+        run: aws s3 cp dist/super-hero.ui s3://angular-caringal-s3/ --recursive
+
 
 
