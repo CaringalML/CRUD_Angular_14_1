@@ -70,3 +70,8 @@ jobs:
       #     docker build -t frontend .
       #     docker tag frontend:latest 407095008364.dkr.ecr.ap-northeast-1.amazonaws.com/frontend:latest
       #     docker push 407095008364.dkr.ecr.ap-northeast-1.amazonaws.com/frontend:latest
+
+
+
+      - name: Sync S3 bucket
+        run: aws s3 sync ./dist s3://angulars3 --delete
