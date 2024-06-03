@@ -75,6 +75,10 @@ jobs:
 
       - name: Sync S3 bucket
         run: |
+
+         # Remove all existing files in the bucket
+            aws s3 rm s3://angulars-yiss --recursive
+
             # Sync new files to the bucket
             aws s3 sync ./dist/super-hero.ui s3://angulars-yiss
 
