@@ -77,12 +77,12 @@ jobs:
         run: |
 
             # Sync new files to the bucket
-            aws s3 sync ./dist/super-hero.ui s3://angulars-yiss
+            aws s3 sync ./dist/super-hero.ui s3://angulars-caringal-prod
 
 
       - name: Create new invaliditaion in cloudfront
         run: |
-            aws cloudfront create-invalidation --distribution-id E1AHRRW4QIG15I --paths "/*"      
+            aws cloudfront create-invalidation --distribution-id EL3Z7G6F5DQXC --paths "/*"      
 
 
 
