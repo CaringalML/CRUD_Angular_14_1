@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: "https://backend.lawrence-kps.online/api"
+  apiUrl: "https://back.lawrence-kps.online/api"
 };
 
 /*

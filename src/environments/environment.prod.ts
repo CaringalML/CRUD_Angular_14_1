@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: "https://backend.lawrence-kps.online/api"
+  apiUrl: "https://back.lawrence-kps.online/api"
 };
