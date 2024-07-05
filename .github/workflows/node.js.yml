@@ -56,7 +56,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-southeast-1 
+          aws-region: ap-northeast-3 
 
       # # Log in to AWS ECR
       # - name: Login to Amazon ECR
@@ -77,12 +77,12 @@ jobs:
         run: |
 
             # Sync new files to the bucket
-            aws s3 sync ./dist/super-hero.ui s3://angular-caringal
+            aws s3 sync ./dist/super-hero.ui s3://angular-nz-caringal 
 
         #This Command will immediately reflect all changes or update to the angular frontend website
       - name: Create new invaliditaion in cloudfront
         run: |
-            aws cloudfront create-invalidation --distribution-id E3L77FFAF7O5TP --paths "/*"      
+            aws cloudfront create-invalidation --distribution-id E1LNHF7ZZ3AYRL --paths "/*"      
 
 
 
