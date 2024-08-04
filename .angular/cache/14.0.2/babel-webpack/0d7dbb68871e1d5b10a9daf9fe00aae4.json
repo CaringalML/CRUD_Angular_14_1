@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const environment = {\n  production: true,\n  apiUrl: \"http://internal-apituan-785481583.ap-southeast-1.elb.amazonaws.com/api\"\n};","map":null,"metadata":{},"sourceType":"module"}
