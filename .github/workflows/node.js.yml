@@ -77,12 +77,12 @@ jobs:
         run: |
 
             # Sync new files to the bucket
-            aws s3 sync ./dist/super-hero.ui s3://tuancaringals 
+            aws s3 sync ./dist/super-hero.ui s3://tuanmahal 
 
         #This Command will immediately reflect all changes or update to the angular frontend website
       - name: Create new invaliditaion in cloudfront
         run: |
-            aws cloudfront create-invalidation --distribution-id E2W1A02IKFQTQW --paths "/*"      
+            aws cloudfront create-invalidation --distribution-id EH0K51P9YQSVG --paths "/*"      
 
 
 
