@@ -82,7 +82,7 @@ jobs:
         #This Command will immediately reflect all changes or update to the angular frontend website
       - name: Create new invaliditaion in cloudfront
         run: |
-            aws cloudfront create-invalidation --distribution-id EH0K51P9YQSVG --paths "/*"      
+            aws cloudfront create-invalidation --distribution-id E1VLFA4P3H4SCE --paths "/*"      
 
 
 
