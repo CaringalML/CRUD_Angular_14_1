@@ -77,7 +77,7 @@ jobs:
         run: |
 
             # Sync new files to the bucket
-            aws s3 sync ./dist/super-hero.ui s3://tuanmahal 
+            aws s3 sync ./dist/super-hero.ui s3://angular-martinots 
 
         #This Command will immediately reflect all changes or update to the angular frontend website
       - name: Create new invaliditaion in cloudfront
